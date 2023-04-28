@@ -1,0 +1,44 @@
+{
+  "name": "drachtio-rtpengine--b2bua-siprec",
+  "version": "0.0.1",
+  "description": "siprec B2BUA built using drachtio and rtpengine",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">= 12.22.1"
+  },
+  "keywords": [
+    "sip",
+    "drachtio",
+    "rtpengine",
+    "siprec",
+    "B2BUA"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/voxbone/drachtio-rtpengine-webrtcproxy.git"
+  },
+  "author": "Hoan HL",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/voxbone/drachtio-rtpengine-webrtcproxy/issues"
+  },
+  "homepage": "https://github.com/voxbone/drachtio-rtpengine-webrtcproxy#readme",
+  "dependencies": {
+    "@jambonz/rtpengine-utils": "^0.4.3",
+    "@jambonz/siprec-client-utils": "^0.2.4",
+    "drachtio-fn-b2b-sugar": "0.0.12",
+    "drachtio-srf": "^4.5.21",
+    "config": "^3.3.9",
+    "pino": "^7.11.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-plugin-promise": "^4.3.1",
+    "nyc": "^15.1.0",
+    "tape": "^4.15.1"
+  }
+}
