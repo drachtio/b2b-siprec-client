@@ -1,0 +1,8 @@
+{
+  "transport protocol": "RTP/AVP",
+  "DTLS": "off",
+  "SDES": "off",
+  "ICE": "remove",
+  "flags": ["media handover", "port latching"],
+  "rtcp-mux": ["accept"]
+}
