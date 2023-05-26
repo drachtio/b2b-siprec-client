@@ -1,26 +1,28 @@
 {
   "siprec": {
-    "enabled": true
+    "log_level": "debug"
   },
   "drachtio": {
     "host": "127.0.0.1",
-    "port": 9022,
+    "port": 9060,
     "secret": "cymru"
   }, 
   "rtpengine": {
-    "hostport": ["127.0.0.1:22222"],
+    "hostport": ["127.0.0.1:12222"],
     "opts": {
-      "dtmfListenPort": 22224,
+      "dtmfListenPort": 12224,
       "protocol": "udp",
       "timeout": 2000
     }
   },
-  "trunk": {
-    "host": "172.38.0.11",
-    "auth": {
-      "username": "<yourusername>",
-      "password": "<yourpassword>"  
+  "trunks": [
+    {
+      "host": "172.39.0.11",
+      "auth": {
+        "username": "<yourusername>",
+        "password": "<yourpassword>"  
+      }
     }
-  },
-  "srsUrl": "sip:srs@172.38.0.11"
+  ],
+  "srsUrl": "sip:srs@172.39.0.11"
 }

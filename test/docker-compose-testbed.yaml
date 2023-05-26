@@ -1,0 +1,38 @@
+version: '3'
+
+networks:
+  sip-rect:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.39.0.0/16
+
+services:  
+  sbc:
+    image: drachtio/drachtio-server:latest
+    command: drachtio --contact "sip:*;transport=udp" --loglevel debug --sofia-loglevel 9
+    ports:
+      - "9060:9022/tcp"
+    networks:
+      sip-rect:
+        ipv4_address: 172.39.0.10
+
+  appserver:
+    image: drachtio/sipp:latest
+    command: sipp -trace_msg -sf /tmp/uas.xml
+    volumes:
+      - ./scenarios:/tmp
+    tty: true
+    networks:
+      sip-rect:
+        ipv4_address: 172.39.0.11
+
+  rtpengine:
+    image: drachtio/rtpengine:latest
+    command: rtpengine --interface private/172.39.0.14 --interface public/172.39.0.14!172.39.0.14
+    ports:
+      - "12222:22222/udp"
+      - "12224:22224/udp"
+    networks:
+      sip-rect:
+        ipv4_address: 172.39.0.14
