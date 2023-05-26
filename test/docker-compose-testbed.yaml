@@ -32,7 +32,7 @@ services:
     command: rtpengine --interface private/172.39.0.14 --interface public/172.39.0.14!172.39.0.14
     ports:
       - "12222:22222/udp"
-      - "12224:22224/udp"
+      - "12224:22224"
     networks:
       sip-rect:
         ipv4_address: 172.39.0.14
