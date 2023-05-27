@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node app.js",
     "test": "node test/",
-    "jslint": "eslint app.js lib --fix"
+    "jslint": "eslint app.js lib"
   },
   "engines": {
     "node": ">= 12.22.1"
