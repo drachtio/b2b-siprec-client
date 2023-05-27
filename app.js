@@ -1,10 +1,8 @@
 const Srf = require('drachtio-srf');
 const srf = new Srf('siprec-b2bua');
-const logOpts = Object.assign({
-  timestamp: () => {return `, "time": "${new Date().toISOString()}"`;}
-}, {level: process.env.JAMBONES_LOGLEVEL});
-const logger = require('pino')(logOpts);
 const config = require('config') ;
+const logOpts = {level: config.get('siprec.log_level')};
+const logger = require('pino')(logOpts);
 const { hostport, opts = {} } = config.get('rtpengine');
 const CallSession = require('./lib/call-session');
 
@@ -36,4 +34,8 @@ srf.on('connect', (err, hp) => {
   if (err) return this.logger.error({err}, 'Error connecting to drachtio server');
   logger.info(`connected to drachtio listening on ${hp}`);
 });
+
+module.exports = {
+  srf
+};
 
